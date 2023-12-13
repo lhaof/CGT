@@ -2,7 +2,7 @@
 
 This is the official PyTorch implementation of the paper - "Cell Graph Transformer for nuclei classification". 
 
-![](diagram/framework.png)
+![](diagram/framework.pdf)
 
 
 
