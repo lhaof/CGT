@@ -24,14 +24,14 @@ pip install torch-geometric torch-scatter torch-sparse
 # Running the Code
 
 ## Topology-aware pretraining
-The GCN-based pretraining is mainly following the inplementation of this work [SENUCLS](https://github.com/Lewislou/SENUCLS).
-The pretrained weights for four datasets will be released soon.
+The GCN-based pretraining is mainly following the implementation of this work [SENUCLS](https://github.com/Lewislou/SENUCLS).
+After the training of SENUCLS, we can have the GCN-pretrained weights. Some weights for the four datasets are in [BaiduNetdisk]().
 
 ## Training
 If you use a dataset like BRCA-M2C that only contains point annotations for nuclei, please use the codes in CGT-POINT. For other datasets like Panuke and Lizard that have the polygon annotations for nuclei, please use the codes in CGT-POLYGON.
 
 ### Data Format
-For training, patches must be extracted using `extract_patches.py`. For each patch, patches are stored as a 4 dimensional numpy array with channels [RGB, inst]. Here, inst is the instance segmentation ground truth. I.e pixels range from 0 to N, where 0 is background and N is the number of nuclear instances for that particular image. 
+For training, patches must be extracted using `extract_patches.py`. For each patch, patches are stored as a 4-dimensional numpy array with channels [RGB, inst]. Here, inst is the instance segmentation ground truth. I.e. pixels range from 0 to N, where 0 is the background, and N is the number of nuclear instances for that particular image. 
 
 Before training:
 
@@ -41,7 +41,7 @@ Before training:
 - Modify hyperparameters, including number of epochs and learning rate in `models/CGT/opt.py`.
 - Set edge number, point number and class weights for Focal loss in `models/CGT/run_desc.py`.
 
-- To initialise the training script with GPUs 0, the command is:
+- To initialize the training script with GPUs 0, the command is:
 ```
 python run_train.py --gpu='0' 
 ```
@@ -51,7 +51,7 @@ python run_train.py --gpu='0'
 ### Data Format
 
 Input: <br />
-- Standard images files, including `png`, `jpg` and `tiff`.
+- Standard image files, including `png`, `jpg` and `tiff`.
 - Instance segmentation results output from other methods, like HoverNet or MaskRCNN. The formats of the segmentation results are '.mat'. The filename should match the testing images.
 
 ### Inference codes for tiles
@@ -73,7 +73,7 @@ tile \
 --save_qupath
 ```
 Output: : <br />
-- mat files / JSON files : Including centroid coordinates and nuclei types.
+- mat files / JSON files: Including centroid coordinates and nuclei types.
 - overlay images: Visualization of the classification results.
 ## Citation
 
