@@ -1,0 +1,11 @@
+name: CGT
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.8
+  - pip=23.1.2
+  - openslide
+  - pip:
+    - -r file:requirements.txt
+    - openslide-python==1.1.2
