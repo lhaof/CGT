@@ -25,7 +25,7 @@ pip install torch-geometric torch-scatter torch-sparse
 
 ## Topology-aware pretraining
 The GCN-based pretraining is mainly following the implementation of this work [SENUCLS](https://github.com/Lewislou/SENUCLS).
-After the training of SENUCLS, we can have the GCN-pretrained weights. Some GCN-Pretrained weights for the four datasets are in [BaiduNetdisk]().
+After the training of SENUCLS, we can have the GCN-pretrained weights. Some GCN-Pretrained weights for the four datasets are in [BaiduNetdisk](https://pan.baidu.com/s/1lZhY6gUBvoC5BOsNq6MDoQ?pwd=qk7h)
 
 ## Training
 
