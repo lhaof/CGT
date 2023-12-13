@@ -55,21 +55,7 @@ Input: <br />
 
 ### Inference codes for tiles
 ```
-python -u run_infer.py \
---gpu='0' \
---nr_types=6 \ # number of types + 1
---type_info_path=type_info.json \
---batch_size=1 \
---model_mode=original \
---model_path=.tar \ # choose the trained weights
---nr_inference_workers=1 \
---nr_post_proc_workers=16 \
-tile \
---input_dir='PaNuKe/Fold3/images/' \ # testing tile path
---output_dir=panuke_out/ \  # output path
---inst_dir='inst_prediction/' \ # instance segmentation results path
---mem_usage=0.1 \
---save_qupath
+python -u run_infer_all.py
 ```
 Output: : <br />
 - mat files / JSON files: Including centroid coordinates and nuclei types.
