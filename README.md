@@ -37,9 +37,9 @@ Before training:
 
 - Set path to the data directories in `config.py`
 - Set path where checkpoints will be saved  in `config.py`
-- Set path to pretrained weights in `models/senucls/opt.py`.
-- Modify hyperparameters, including number of epochs and learning rate in `models/senucls/opt.py`.
-- Set edge number, point number and class weights for Focal loss in `models/senucls/run_desc.py`.
+- Set path to pretrained weights in `models/CGT/opt.py`.
+- Modify hyperparameters, including number of epochs and learning rate in `models/CGT/opt.py`.
+- Set edge number, point number and class weights for Focal loss in `models/CGT/run_desc.py`.
 
 - To initialise the training script with GPUs 0, the command is:
 ```
@@ -75,7 +75,6 @@ tile \
 Output: : <br />
 - mat files / JSON files : Including centroid coordinates and nuclei types.
 - overlay images: Visualization of the classification results.
-- 
 ## Citation
 
 If any part of this code is used, please give appropriate citations to our paper. <br />
