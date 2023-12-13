@@ -28,7 +28,6 @@ The GCN-based pretraining is mainly following the implementation of this work [S
 After the training of SENUCLS, we can have the GCN-pretrained weights. Some weights for the four datasets are in [BaiduNetdisk]().
 
 ## Training
-If you use a dataset like BRCA-M2C that only contains point annotations for nuclei, please use the codes in CGT-POINT. For other datasets like Panuke and Lizard that have the polygon annotations for nuclei, please use the codes in CGT-POLYGON.
 
 ### Data Format
 For training, patches must be extracted using `extract_patches.py`. For each patch, patches are stored as a 4-dimensional numpy array with channels [RGB, inst]. Here, inst is the instance segmentation ground truth. I.e. pixels range from 0 to N, where 0 is the background, and N is the number of nuclear instances for that particular image. 
