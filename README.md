@@ -38,7 +38,7 @@ Before training:
 - Set path where checkpoints will be saved  in `config.py`
 - Set path to pretrained weights in `models/CGT/opt.py`.
 - Modify hyperparameters, including number of epochs and learning rate in `models/CGT/opt.py`.
-- Set edge number, point number and class weights for Focal loss in `models/CGT/run_desc.py`.
+- Set edge number and class weights for Focal loss in `models/CGT/run_desc.py`.
 
 - To initialize the training script with GPUs 0, the command is:
 ```
