@@ -2,7 +2,7 @@
 
 This is the official PyTorch implementation of the paper - "Cell Graph Transformer for nuclei classification". 
 
-![](diagram/.png)
+![](diagram/framework.png)
 
 
 
@@ -16,14 +16,20 @@ pip install torch==1.13.0+cu116 torchvision==0.14.0+cu116 torchaudio==0.13.0 --e
 pip install torch-geometric torch-scatter torch-sparse
 ```
 ## Datasets
-- [CoNSeP]()
+- [Lizard](https://openaccess.thecvf.com/content/ICCV2021W/CDPath/html/Graham_Lizard_A_Large-Scale_Dataset_for_Colonic_Nuclear_Instance_Segmentation_and_ICCVW_2021_paper.html)
 - [PanNuke](https://arxiv.org/abs/2003.10778)
-- [MoNuSAC]()
+- [NuCLS](https://academic.oup.com/gigascience/article-abstract/doi/10.1093/gigascience/giac037/6586817)
+- [BRCA-M2C](http://openaccess.thecvf.com/content/ICCV2021/html/Abousamra_Multi-Class_Cell_Detection_Using_Spatial_Context_Representation_ICCV_2021_paper.html)
 
 # Running the Code
 
+## Topology-aware pretraining
+The GCN-based pretraining is mainly following the inplementation of this work [SENUCLS](https://github.com/Lewislou/SENUCLS).
+The pretrained weights for four datasets will be released soon.
+
 ## Training
 If you use a dataset like BRCA-M2C that only contains point annotations for nuclei, please use the codes in CGT-POINT. For other datasets like Panuke and Lizard that have the polygon annotations for nuclei, please use the codes in CGT-POLYGON.
+
 ### Data Format
 For training, patches must be extracted using `extract_patches.py`. For each patch, patches are stored as a 4 dimensional numpy array with channels [RGB, inst]. Here, inst is the instance segmentation ground truth. I.e pixels range from 0 to N, where 0 is background and N is the number of nuclear instances for that particular image. 
 
@@ -31,9 +37,9 @@ Before training:
 
 - Set path to the data directories in `config.py`
 - Set path where checkpoints will be saved  in `config.py`
-- Set path to pretrained VAN-base weights in `models/senucls/opt.py`. Download the weights [here](https://drive.google.com/file/d/1ne9rpzimYh7EyaUU5kfDd2nDzl04LJ5v/view?usp=sharing).
+- Set path to pretrained weights in `models/senucls/opt.py`.
 - Modify hyperparameters, including number of epochs and learning rate in `models/senucls/opt.py`.
-- Set edge number, point number and class weights for Focal loss in `models/senucls/run_desc.PY`.
+- Set edge number, point number and class weights for Focal loss in `models/senucls/run_desc.py`.
 
 - To initialise the training script with GPUs 0, the command is:
 ```
@@ -46,7 +52,6 @@ python run_train.py --gpu='0'
 
 Input: <br />
 - Standard images files, including `png`, `jpg` and `tiff`.
-- WSIs supported by [OpenSlide](https://openslide.org/), including `svs`, `tif`, `ndpi` and `mrxs`.
 - Instance segmentation results output from other methods, like HoverNet or MaskRCNN. The formats of the segmentation results are '.mat'. The filename should match the testing images.
 
 ### Inference codes for tiles
